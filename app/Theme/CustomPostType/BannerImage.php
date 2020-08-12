@@ -31,16 +31,31 @@ class BannerImage extends \App\Core\Custom\PostType
     public function register()
     {
         parent::register();
+        add_image_size('banner-featured-image', 150, 150, false);
         add_filter(
             'manage_banner_image_posts_columns',
             [$this, 'customColumn'],
             2
         );
+        add_action('manage_banner_image_posts_custom_column', [$this, 'customAdminColumn'], 10, 2);
     }
 
     public function customColumn($columns)
     {
         $columns['banner_thumbnail'] = __('Feature Image', 'text_domain');
         return $columns;
+    }
+
+    public function customAdminColumn($columns, $id)
+    {
+        switch ($columns) {
+            case 'banner_thumbnail':
+                if (function_exists('the_post_thumbnail')) {
+                    echo the_post_thumbnail('banner-featured-image');
+                } else {
+                    echo 'hmm... your theme doesn\'t support featured image...';
+                }
+                break;
+        }
     }
 }

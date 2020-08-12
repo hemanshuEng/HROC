@@ -14,5 +14,6 @@ class ThemeEnqueue extends Enqueue
     {
         parent::__construct();
         $this->css_path = '/public/css/app.css';
+        $this->js_path  = "/public/js/app.js";
     }
 }

@@ -10,9 +10,11 @@ namespace App\Core\Setup;
 class Enqueue implements \App\Core\ServiceInterface
 {
     protected $css_path;
+    protected $js_path;
     public function __construct()
     {
         $this->css_path = "";
+        $this->js_path  = "";
     }
 
     /**
@@ -32,6 +34,14 @@ class Enqueue implements \App\Core\ServiceInterface
             [],
             uniqid(),
             'all'
+        );
+        // JS
+        wp_enqueue_script(
+            'main',
+            get_template_directory_uri() . $this->js_path,
+            [],
+            uniqid(),
+            true
         );
     }
 }
