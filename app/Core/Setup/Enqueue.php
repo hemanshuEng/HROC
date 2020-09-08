@@ -7,10 +7,27 @@ declare(strict_types=1);
 
 namespace App\Core\Setup;
 
+/**
+ * Class Enqueue
+ * @package App\Core\Setup
+ * add your js and css file to application
+ */
 class Enqueue implements \App\Core\ServiceInterface
 {
+    /**
+     * @var string
+     * path to css file
+     */
     protected $css_path;
+    /**
+     * @var string
+     * path to javascript file
+     */
     protected $js_path;
+
+    /**
+     * Enqueue constructor.
+     */
     public function __construct()
     {
         $this->css_path = "";
@@ -25,6 +42,9 @@ class Enqueue implements \App\Core\ServiceInterface
         add_action('wp_enqueue_scripts', [$this,'enqueueScripts']);
     }
 
+    /**
+     * enqueue script file
+     */
     public function enqueueScripts()
     {
         //CSS

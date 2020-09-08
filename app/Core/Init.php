@@ -13,9 +13,21 @@ namespace App\Core;
 
 use App\Core\ServiceInterface;
 
+/**
+ * Class Init
+ * @package App\Core
+ * attach all hook and filter to application
+ */
 class Init
 {
+    /**
+     * Add Service to initializes
+     */
     protected array $service;
+
+    /**
+     * Init constructor.
+     */
     public function __construct()
     {
         $this->service = [];

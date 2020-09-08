@@ -1,6 +1,9 @@
 <?php
-$category = get_field_object('Banner_Category');
-if ($category) {
+/**
+ * Template for banner
+ */
+if (function_exists('get_field_object')) {
+    $category = get_field_object('Banner_Category');
     $args = [
         'post_type' => ['banner_image'],
         'tax_query' => [
@@ -14,11 +17,11 @@ if ($category) {
     ];
 } else {
     $args = [
-        'post_type' => ['banner_image']
+        'post_type' => ['banner_image'],
     ];
 }
-$banner_img_query = new WP_Query($args);
-$active_class = 'carousel-item active';
+    $banner_img_query = new WP_Query($args);
+    $active_class = 'carousel-item active';
 ?>
 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">

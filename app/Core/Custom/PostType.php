@@ -1,9 +1,18 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Core\Custom;
-
+/**
+ * Class PostType
+ * @package App\Core\Custom
+ * parents class to create custom Post type
+ */
 class PostType implements \App\Core\ServiceInterface
 {
+    /**
+     * @var array
+     * custom post type array with all information
+     */
     protected array $custom_post;
 
     public function __construct()

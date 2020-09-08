@@ -1,10 +1,15 @@
 <?php
-
+declare(strict_types=1);
 
 namespace App\Theme;
 
 use App\Core\Setup\Enqueue;
 
+/**
+ * Class ThemeEnqueue
+ * @package App\Theme
+ * Theme CSS and JS path
+ */
 class ThemeEnqueue extends Enqueue
 {
     /**
